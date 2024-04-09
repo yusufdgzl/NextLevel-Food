@@ -13,8 +13,8 @@ function MainHeader() {
         </Link>
       </div>
       <nav className="space-x-10 text-xl font-semibold">
-        <Link href="/">Browse Meals</Link>
-        <Link href="/">Foodies Community</Link>
+        <Link href="meals">Browse Meals</Link>
+        <Link href="/community">Foodies Community</Link>
       </nav>
     </header>
   );
