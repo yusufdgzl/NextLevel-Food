@@ -10,7 +10,7 @@ function MainHeader() {
   const activeClass = "text-yellow-500 [text-shadow:_0_0_15px_yellow]";
 
   return (
-    <header className="flex flex-col space-y-6 relative bg-[url('https://images3.alphacoders.com/116/116517.jpg')] bg-center md:bg-cover  justify-between items-center md:px-36 py-8 md:space-y-0 md:flex-row font-bold text-white tracking-wider ">
+    <header className="flex flex-col space-y-6 relative bg-[url('https://images3.alphacoders.com/116/116517.jpg')] bg-center md:bg-cover justify-between items-center md:px-36 py-8 pb-20 md:space-y-0 md:flex-row font-bold text-white tracking-wider ">
       <div className="flex  items-center  space-x-6">
         <Image src={logoImg} className="w-20" alt="Main logo" />
         <Link className="text-2xl" href="/">
