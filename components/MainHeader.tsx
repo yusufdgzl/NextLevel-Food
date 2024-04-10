@@ -7,10 +7,10 @@ import { usePathname } from "next/navigation";
 
 function MainHeader() {
   const pathName = usePathname();
-  const activeClass = "text-yellow-500 [text-shadow:_0_0_15px_yellow]";
+  const activeClass = "text-pink-500 [text-shadow:_0_0_15px_pink]";
 
   return (
-    <header className="flex flex-col space-y-6 relative bg-[url('https://images3.alphacoders.com/116/116517.jpg')] bg-center md:bg-cover justify-between items-center md:px-36 py-8 pb-20 md:space-y-0 md:flex-row font-bold text-white tracking-wider ">
+    <header className="flex flex-col space-y-6 relative bg-[url('https://getwallpapers.com/wallpaper/full/6/8/a/1371788-dark-purple-background-1920x1152-hd-1080p.jpg')] bg-cover md:bg-auto md:bg-center justify-between items-center md:px-36 py-8 pb-20 md:space-y-0 md:flex-row font-bold text-white tracking-wider ">
       <div className="flex  items-center  space-x-6">
         <Image src={logoImg} className="w-20" alt="Main logo" />
         <Link className="text-2xl" href="/">
@@ -19,7 +19,7 @@ function MainHeader() {
       </div>
       <nav className=" space-x-10  text-lg  md:text-xl font-semibold">
         <Link
-          className={` hover:text-yellow-500 hover:[text-shadow:_0_0_15px_yellow]   px-3 py-1 rounded-full ${
+          className={` hover:text-pink-500 hover:[text-shadow:_0_0_15px_pink]   px-3 py-1 rounded-full ${
             pathName === "/meals" && activeClass
           } `}
           href="meals"
@@ -27,7 +27,7 @@ function MainHeader() {
           Browse Meals
         </Link>
         <Link
-          className={` hover:text-yellow-500 hover:[text-shadow:_0_0_15px_yellow]   px-3 py-1 rounded-full ${
+          className={` hover:text-pink-500 hover:[text-shadow:_0_0_15px_pink]   px-3 py-1 rounded-full ${
             pathName === "/community" && activeClass
           } `}
           href="/community"
