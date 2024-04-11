@@ -1,4 +1,4 @@
-import MealsHeader from "@/components/MealsHeader"
+import MealsHeader from "@/components/meals/MealsHeader"
 
 export default function Meals() {
     return (
