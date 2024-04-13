@@ -1,4 +1,26 @@
+"use client";
+
+import { FormEvent, useRef } from "react";
+
 export default function SharePage() {
+
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const titleRef = useRef<HTMLInputElement>(null);
+  const shortSummaryRef = useRef<HTMLInputElement>(null);
+  const instructionsRef = useRef<HTMLTextAreaElement>(null);
+
+  function submitHandler(event: FormEvent) {
+    event.preventDefault();
+    const enteredName = nameRef.current!.value;
+    const enteredEmail = nameRef.current!.value;
+    const enteredTitle = nameRef.current!.value;
+    const enteredShortSummary = nameRef.current!.value;
+    const enteredInstructions = nameRef.current!.value;
+   
+
+  }
+
   return (
     <>
       <div className="flex flex-col items-center md:items-start text-white space-y-6 py-6 px-6 md:px-36">
@@ -10,19 +32,34 @@ export default function SharePage() {
         </h2>
       </div>
 
-      <form className=" flex flex-col  px-6 py-10 md:px-0 space-y-4  md:pl-36 max-w-[900px]">
+      <form
+        onSubmit={submitHandler}
+        className=" flex flex-col  px-6 py-10 md:px-0 space-y-4  md:pl-36 max-w-[900px]"
+      >
         <div className="flex space-x-4 ">
           <div className="flex flex-col w-full space-y-2">
             <label className="text-gray-400 font-semibold" htmlFor="name">
               YOUR NAME
             </label>
-            <input className="input" type="text" id="name" name="name" />
+            <input
+              className="input"
+              type="text"
+              id="name"
+              name="name"
+              ref={nameRef}
+            />
           </div>
           <div className="flex flex-col w-full space-y-2">
             <label className="text-gray-400 font-semibold" htmlFor="email">
               YOUR EMAIL
             </label>
-            <input className="input" type="email" id="email" name="email" />
+            <input
+              className="input"
+              type="email"
+              id="email"
+              name="email"
+              ref={emailRef}
+            />
           </div>
         </div>
 
@@ -30,7 +67,13 @@ export default function SharePage() {
           <label className="text-gray-400 font-semibold" htmlFor="title">
             TITLE
           </label>
-          <input className="input" type="text" id="title" name="title" />
+          <input
+            className="input"
+            type="text"
+            id="title"
+            name="title"
+            ref={titleRef}
+          />
         </div>
 
         <div className="flex flex-col w-full space-y-2">
@@ -38,6 +81,7 @@ export default function SharePage() {
             SHORT SUMMARY
           </label>
           <input
+            ref={shortSummaryRef}
             className="input"
             type="text"
             id="shortSummary"
@@ -50,6 +94,7 @@ export default function SharePage() {
             INSTRUCTIONS
           </label>
           <textarea
+            ref={instructionsRef}
             className="input h-40 "
             id="instructions"
             name="instructions"
