@@ -1,5 +1,5 @@
 import MealsHeader from "@/components/meals/MealsHeader"
-import MealsSection from "@/components/meals/MealsSection";
+import MealsSection from "@/components/meals/MealsGridSection";
 
 export default function Meals() {
     return (
