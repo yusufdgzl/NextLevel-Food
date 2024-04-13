@@ -15,3 +15,17 @@ export default async function getMeals(){
 
     return meals
 }
+
+
+export  async function getMeal({title}:{title: string | string[]}){
+    const response = await fetch(`/api/${title}`)
+
+    if(!response.ok){
+        throw new Error('An error occur during getMeal function')
+    }
+
+    const meal = await response.json();
+
+    return meal
+
+}
