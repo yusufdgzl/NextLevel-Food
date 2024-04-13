@@ -7,7 +7,7 @@ function MealsHeader() {
         Delicious meals, created <p className="px-2 text-pink-700">by you</p>
       </h1>
       <h2 className="text-center md:text-left text-lg">Choose your favorite recipe and cook it yourself. It is easy and fun!</h2>
-      <Link className="py-1 px-4 rounded-lg bg-pink-700 text-xl  " href="/">Share Your Favorite Recipe</Link>
+      <Link href="/meals/share" className="py-1 px-4 rounded-lg bg-pink-700 text-xl  " >Share Your Favorite Recipe</Link>
     </div>
   );
 }
