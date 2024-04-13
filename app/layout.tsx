@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import MainHeader from "@/components/main/MainHeader";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "@/components/util/http";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,10 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <QueryClientProvider client={queryClient}>
       <body className="bg-gray-900">
         <MainHeader />
         {children}
       </body>
+      </QueryClientProvider>
     </html>
   );
 }

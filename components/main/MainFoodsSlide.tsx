@@ -40,6 +40,7 @@ function FoodSlide() {
               : "opacity-0 scale-110 -rotate-6 -translate-x-1"
           } `}
           src={item.image}
+          key={index}
           width={800}
           height={800}
           alt="burger image"
