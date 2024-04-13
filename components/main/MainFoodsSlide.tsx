@@ -25,7 +25,7 @@ function FoodSlide() {
   useEffect(() => {
     const timer = setInterval(() => {
       setImageIndex((prev) => (prev < allFoodsImage.length - 1 ? prev + 1 : 0));
-    }, 5000);
+    }, 2000);
 
     return () => clearInterval(timer);
   }, []);
