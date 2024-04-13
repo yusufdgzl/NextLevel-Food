@@ -13,7 +13,7 @@ export async function GET(
 
   const extrackedData = JSON.parse(jsonData);
 
-  const selectedData = extrackedData.find((item:Meals) => item.title === slug);
+  const selectedData = extrackedData.find((item: Meals) => item.title === slug);
 
   return new Response(JSON.stringify(selectedData));
 }
