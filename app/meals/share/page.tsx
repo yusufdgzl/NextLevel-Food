@@ -3,7 +3,6 @@
 import { FormEvent, useRef } from "react";
 
 export default function SharePage() {
-
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const titleRef = useRef<HTMLInputElement>(null);
@@ -13,11 +12,20 @@ export default function SharePage() {
   function submitHandler(event: FormEvent) {
     event.preventDefault();
     const enteredName = nameRef.current!.value;
-    const enteredEmail = nameRef.current!.value;
-    const enteredTitle = nameRef.current!.value;
-    const enteredShortSummary = nameRef.current!.value;
-    const enteredInstructions = nameRef.current!.value;
-   
+    const enteredEmail = emailRef.current!.value;
+    const enteredTitle = titleRef.current!.value;
+    const enteredShortSummary = shortSummaryRef.current!.value;
+    const enteredInstructions = instructionsRef.current!.value;
+
+    const enteredData = {
+      name: enteredName,
+      email: enteredEmail,
+      title: enteredTitle,
+      shortSummary: enteredShortSummary,
+      instructions: enteredInstructions,
+    };
+    console.log(enteredData)
+
 
   }
 
