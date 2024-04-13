@@ -14,7 +14,7 @@ export default function Community() {
           Join our community and share your favorite recipes!
         </h2>
       </div>
-      <div className="flex flex-col w-full items-center justify-center text-center space-y-8 py-8   ">
+      <div className="flex flex-col w-full items-center justify-center text-center space-y-8 py-8  ">
         <h2 className="text-2xl md:text-4xl font-semibold">Community Perks</h2>
         <div className=" flex flex-col w-full md:pl-10 md:max-w-[1000px] items-center space-y-6 md:flex-row md:space-y-0 md:justify-between  ">
           <div className="flex flex-col justify-center items-center space-y-6 max-w-[300px] md:translate-y-40 transition-transform duration-1000">
@@ -32,7 +32,7 @@ export default function Community() {
               Find new friends & like-minded people
             </p>
           </div> 
-          <div className="flex flex-col justify-center items-center space-y-6 max-w-[300px] md:translate-y-60 transition-transform duration-1000">
+          <div className="flex flex-col md:py-20  justify-center items-center space-y-6 max-w-[300px] md:translate-y-60 transition-transform duration-1000">
             <Image src={eventsIcon} width={100} height={100} alt="Meals Icon" />
             <p className="text-lg md:text-2xl font-semibold">
               Participate in exclusive events
