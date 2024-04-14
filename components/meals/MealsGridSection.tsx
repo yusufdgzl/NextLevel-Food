@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import getMeals from "../util/http";
 
 import MealsCard from "./MealsCard";
+import LoadingIndicator from "../ui/LoadingIndicator";
 
 export type Meals = {
   name: string;
@@ -24,11 +25,7 @@ export default function MealsSection() {
   let content;
 
   if (isPending) {
-    content = (
-      <ul className="text-green-600 text-center text-xl animate-pulse">
-        <p>Meals loading...</p>
-      </ul>
-    );
+    content = <LoadingIndicator />;
   }
 
   if (isError) {

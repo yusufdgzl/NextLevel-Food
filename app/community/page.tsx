@@ -3,9 +3,11 @@ import mealsIcon from "@/assets/icons/meal.png";
 import communityIcon from "@/assets/icons/community.png";
 import eventsIcon from "@/assets/icons/events.png";
 
+
 export default function Community() {
   return (
     <div className="flex flex-col space-y-10 items-center justify-center  text-white">
+      
       <div className="flex flex-col space-y-8 py-4 tracking-widest items-center">
         <h1 className="flex text-3xl md:text-5xl font-bold ">
           One shared passion:<p className="px-3 text-pink-700">Food</p>

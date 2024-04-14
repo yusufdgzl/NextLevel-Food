@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 
 import Image from "next/image";
 import { Meals } from "@/components/meals/MealsGridSection";
+import LoadingIndicator from "@/components/ui/LoadingIndicator";
 
 export default function MealsDetailPage() {
   const params = useParams();
@@ -19,9 +20,7 @@ export default function MealsDetailPage() {
 
   if (isPending) {
     content = (
-      <ul className="text-green-600 text-center text-xl animate-pulse">
-        <p>Meal loading...</p>
-      </ul>
+      <LoadingIndicator/>
     );
   }
 
