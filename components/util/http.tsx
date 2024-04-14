@@ -42,6 +42,7 @@ export async function createNewMeal({ formData }: { formData: Meals }) {
     throw new Error("Failed process of create new Meal!");
   }
 
+  const form = response.json();
 
-  return {message: "New Meal added succesfully..."}
+  return form
 }

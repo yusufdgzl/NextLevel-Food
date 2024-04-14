@@ -1,8 +1,15 @@
 "use client";
 
+import { createNewMeal } from "@/components/util/http";
+import { useMutation } from "@tanstack/react-query";
 import { FormEvent, useRef } from "react";
 
 export default function SharePage() {
+
+  const {mutate,data} = useMutation({
+    mutationFn: createNewMeal
+  })
+
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const titleRef = useRef<HTMLInputElement>(null);
@@ -24,11 +31,14 @@ export default function SharePage() {
       shortSummary: enteredShortSummary,
       instructions: enteredInstructions,
     };
-    console.log(enteredData)
-
+  
+    mutate({formData:enteredData})
+   
 
   }
 
+
+  console.log(data)
   return (
     <>
       <div className="flex flex-col items-center md:items-start text-white space-y-6 py-6 px-6 md:px-36">
