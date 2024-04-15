@@ -1,5 +1,6 @@
 "use client";
 
+import ImagePicker from "@/components/share/ImagePicker";
 import { createNewMeal } from "@/components/util/http";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
@@ -127,15 +128,18 @@ export default function SharePage() {
           />
         </div>
 
-        <div className="flex flex-col  w-full space-y-2">
+        {/* <div className="flex flex-col  w-full space-y-2">
           <p className="text-gray-400 font-semibold">YOUR IMAGE</p>
           <div className="flex space-x-6">
             <div className=" border p-10 w-40">
               <p className=" text-gray-400">No image picked yet.</p>
             </div>
-            <button onClick={pickImageHandler} className=" bg-slate-300 h-8 px-6 ">Pick an image</button>
+            <button  className=" bg-slate-300 h-8 px-6 ">Pick an image</button>
           </div>
-        </div>
+          
+        </div> */}
+
+        <ImagePicker/>
 
         <div className="w-full flex justify-end">
           <button className="w-full md:w-[200px] rounded-md border text-pink-600 border-pink-600 hover:bg-pink-600 hover:text-white transition-colors duration-300  py-2">
