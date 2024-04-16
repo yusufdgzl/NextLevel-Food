@@ -5,15 +5,21 @@ import { Meals } from "../meals/MealsGridSection";
 
 export const queryClient = new QueryClient();
 
-export async function getMeals() {
+export async function getMeals({ searchData }: { searchData: string }) {
   const response = await fetch("/api");
 
   if (!response.ok) {
     throw new Error("An error occur during getMeals function");
   }
 
-  const meals = await response.json();
+  let meals: Meals[] = await response.json();
 
+  if (searchData) {
+    meals = meals.filter((item) => {
+      const searchableText = `${item.title} ${item.name}`;
+      return searchableText.toLowerCase().includes(searchData.toLowerCase());
+    });
+  }
   return meals;
 }
 
@@ -40,7 +46,9 @@ export async function createNewMeal({ formData }: { formData: Meals }) {
     shortSummary === "" ||
     title === ""
   ) {
-    throw new Error("Information is missing or incorrect ,please check all fields!");
+    throw new Error(
+      "Information is missing or incorrect ,please check all fields!"
+    );
   }
 
   const response = await fetch("/api", {
