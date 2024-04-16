@@ -5,7 +5,7 @@ import { createNewMeal } from "@/components/util/http";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
-import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 
 export type SelectedImage = string | ArrayBuffer | null | undefined;
 
@@ -29,17 +29,6 @@ export default function SharePage() {
 
   // IMAGE PICKER FUNCTİON
 
-  function handleImageChange(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files && event.target.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setSelectedImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  }
 
   //
 
@@ -150,7 +139,7 @@ export default function SharePage() {
 
         <ImagePicker
           selectedImage={selectedImage}
-          onHandleImageChange={handleImageChange}
+          setSelectedImage={setSelectedImage}
         />
         <div className="w-full flex justify-end">
           <button className="w-full md:w-[200px] rounded-md border text-pink-600 border-pink-600 hover:bg-pink-600 hover:text-white transition-colors duration-300  py-2">

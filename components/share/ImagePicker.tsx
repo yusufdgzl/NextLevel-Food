@@ -2,14 +2,14 @@ import { SelectedImage } from "@/app/meals/share/page";
 import { ChangeEvent, MouseEvent, useRef } from "react";
 
 type ImagePickerProps = {
-  onHandleImageChange: (event:ChangeEvent<HTMLInputElement>) => void;
-  selectedImage : SelectedImage; 
-}
+  selectedImage: SelectedImage;
+  setSelectedImage: (prev: SelectedImage) => void;
+};
 
-export default function ImagePicker({onHandleImageChange,selectedImage}:ImagePickerProps) {
-
-
-
+export default function ImagePicker({
+  setSelectedImage,
+  selectedImage,
+}: ImagePickerProps) {
   const imageInputRef = useRef<HTMLInputElement>(null);
 
   function handlePickClick(event: MouseEvent<HTMLButtonElement>) {
@@ -17,11 +17,22 @@ export default function ImagePicker({onHandleImageChange,selectedImage}:ImagePic
     imageInputRef.current?.click();
   }
 
+  function handleImageChange(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files && event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setSelectedImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 
   return (
     <div className="flex items-center space-x-10  ">
       <div className="w-40 h-40 border justify-center items-center flex text-white ">
-        {typeof selectedImage === 'string' ? (
+        {typeof selectedImage === "string" ? (
           <img className="h-full w-full" src={selectedImage} alt="Selected" />
         ) : (
           <p className="px-10">No image picked yet</p>
@@ -33,7 +44,7 @@ export default function ImagePicker({onHandleImageChange,selectedImage}:ImagePic
         type="file"
         accept="image/*"
         ref={imageInputRef}
-        onChange={onHandleImageChange}
+        onChange={handleImageChange}
       />
       <button onClick={handlePickClick} className=" bg-slate-300 h-8 px-6 ">
         Pick an image
