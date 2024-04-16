@@ -8,7 +8,7 @@ function MealsHeader() {
         <h1 className="flex text-2xl font-bold justify-center md:justify-start md:text-5xl">
           Delicious meals, created <p className="px-2 text-pink-700">by you</p>
         </h1>
-        <div className="hidden md:flex">
+        <div className=" hidden md:flex">
           <MealsSearch />
         </div>
       </div>
@@ -22,7 +22,7 @@ function MealsHeader() {
       >
         Share Your Favorite Recipe
       </Link>
-      <div className="md:hidden">
+      <div className="w-full md:hidden">
         <MealsSearch />
       </div>
     </div>
