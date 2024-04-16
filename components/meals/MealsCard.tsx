@@ -3,16 +3,20 @@ import { Meals } from "./MealsGridSection";
 import Link from "next/link";
 
 export default function MealsCard({ items }: { items: Meals }) {
+  const image = items?.image;
+
   return (
     <div className="flex flex-col max-w-[400px] rounded-ss-3xl rounded-ee-3xl bg-[#1c0e1a]   overflow-hidden group">
       <div className="w-[400px] h-[300px] overflow-hidden">
-        <Image
-          className="  rounded-ss-3xl h-full group-hover:scale-110 group-hover:contrast-[1.1] group-hover:brightness-110 duration-300 "
-          src={items?.image}
-          width={400}
-          height={400}
-          alt="Pizza Image"
-        />
+        {typeof image === "string" && (
+          <Image
+            className="  rounded-ss-3xl h-full group-hover:scale-110 group-hover:contrast-[1.1] group-hover:brightness-110 duration-300 "
+            src={image}
+            width={400}
+            height={300}
+            alt="Pizza Image"
+          />
+        )}
       </div>
 
       <div className="p-4 text-white tracking-wider  ">
