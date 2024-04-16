@@ -1,9 +1,14 @@
-import { ChangeEvent, MouseEvent, useRef, useState } from "react";
+import { SelectedImage } from "@/app/meals/share/page";
+import { ChangeEvent, MouseEvent, useRef } from "react";
 
-export default function ImagePicker() {
-  const [selectedImage, setSelectedImage] = useState<
-    string | ArrayBuffer | null | undefined
-  >(null);
+type ImagePickerProps = {
+  onHandleImageChange: (event:ChangeEvent<HTMLInputElement>) => void;
+  selectedImage : SelectedImage; 
+}
+
+export default function ImagePicker({onHandleImageChange,selectedImage}:ImagePickerProps) {
+
+
 
   const imageInputRef = useRef<HTMLInputElement>(null);
 
@@ -12,18 +17,6 @@ export default function ImagePicker() {
     imageInputRef.current?.click();
   }
 
-  function handleImageChange(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files && event.target.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        setSelectedImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  }
 
   return (
     <div className="flex items-center space-x-10  ">
@@ -40,7 +33,7 @@ export default function ImagePicker() {
         type="file"
         accept="image/*"
         ref={imageInputRef}
-        onChange={handleImageChange}
+        onChange={onHandleImageChange}
       />
       <button onClick={handlePickClick} className=" bg-slate-300 h-8 px-6 ">
         Pick an image

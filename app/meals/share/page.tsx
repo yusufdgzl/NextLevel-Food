@@ -5,9 +5,15 @@ import { createNewMeal } from "@/components/util/http";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
-import { FormEvent, MouseEvent, useRef } from "react";
+import { ChangeEvent, FormEvent, MouseEvent, useRef, useState } from "react";
+
+export  type SelectedImage = string | ArrayBuffer | null | undefined;
 
 export default function SharePage() {
+
+
+  const [selectedImage, setSelectedImage] = useState<SelectedImage>(null);
+
   const router = useRouter();
 
   const { mutate } = useMutation({
@@ -22,6 +28,19 @@ export default function SharePage() {
   const titleRef = useRef<HTMLInputElement>(null);
   const shortSummaryRef = useRef<HTMLInputElement>(null);
   const instructionsRef = useRef<HTMLTextAreaElement>(null);
+
+  function handleImageChange(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files && event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setSelectedImage(reader.result);
+     
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 
   function submitHandler(event: FormEvent) {
     event.preventDefault();
@@ -40,14 +59,7 @@ export default function SharePage() {
     };
 
     mutate({ formData: enteredData });
-  };
-
-  //TODO: image pickerrrrrrrrrrrrrr//
-
-  function pickImageHandler(event:MouseEvent<HTMLButtonElement>){
-    event.preventDefault();
   }
-
 
   return (
     <>
@@ -128,18 +140,7 @@ export default function SharePage() {
           />
         </div>
 
-        {/* <div className="flex flex-col  w-full space-y-2">
-          <p className="text-gray-400 font-semibold">YOUR IMAGE</p>
-          <div className="flex space-x-6">
-            <div className=" border p-10 w-40">
-              <p className=" text-gray-400">No image picked yet.</p>
-            </div>
-            <button  className=" bg-slate-300 h-8 px-6 ">Pick an image</button>
-          </div>
-          
-        </div> */}
-
-        <ImagePicker/>
+        <ImagePicker selectedImage={selectedImage} onHandleImageChange={handleImageChange} />
 
         <div className="w-full flex justify-end">
           <button className="w-full md:w-[200px] rounded-md border text-pink-600 border-pink-600 hover:bg-pink-600 hover:text-white transition-colors duration-300  py-2">
