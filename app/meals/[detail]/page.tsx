@@ -19,9 +19,7 @@ export default function MealsDetailPage() {
   let content;
 
   if (isPending) {
-    content = (
-      <LoadingIndicator/>
-    );
+    content = <LoadingIndicator />;
   }
 
   if (isError) {
@@ -40,13 +38,15 @@ export default function MealsDetailPage() {
             data ? "translate-x-0" : "translate-x-10"
           }  `}
         >
-          <Image
-            className="w-[500px] h-[400px]"
-            src={data.image}
-            width={800}
-            height={800}
-            alt="Pizza Image"
-          />
+          {typeof data.image === "string" && (
+            <Image
+              className="w-[500px] h-[400px]"
+              src={data.image}
+              width={800}
+              height={800}
+              alt="Pizza Image"
+            />
+          )}
           <div className=" py-6 space-y-4 text-center max-w-[700px] text-white md:text-left md:p-14">
             <h1 className="text-3xl font-bold md:text-5xl">{data.title}</h1>
             <h2 className="flex justify-center text-xl md:text-2xl md:justify-start ">
@@ -56,7 +56,9 @@ export default function MealsDetailPage() {
           </div>
         </div>
         <div className="max-w-[1000px] ">
-          <p className=" bg-[#9f8c7a] rounded-xl p-6">{data.instructions}</p>
+          <pre className=" bg-[#9f8c7a] rounded-xl p-6">
+            {data.instructions}
+          </pre>
         </div>
       </div>
     );
