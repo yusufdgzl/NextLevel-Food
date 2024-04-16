@@ -4,6 +4,6 @@
 
 @layer components {
   .input {
-    @apply px-2 py-1 bg-slate-800 border border-gray-600 text-white rounded-md  focus:outline-pink-500;
+    @apply px-2 py-1 bg-slate-800 border border-gray-600 text-white rounded-md outline-none  focus:outline-pink-500;
   }
 }

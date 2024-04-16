@@ -6,7 +6,7 @@ export default function SearchIcons() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="gray"
-      className="w-6 h-6 stroke-pink-700"
+      className="w-6 h-6 stroke-pink-500"
     >
       <path
         strokeLinecap="round"
