@@ -21,7 +21,7 @@ export default function ImagePicker({onHandleImageChange,selectedImage}:ImagePic
   return (
     <div className="flex items-center space-x-10  ">
       <div className="w-40 h-40 border justify-center items-center flex text-white ">
-        {selectedImage ? (
+        {typeof selectedImage === 'string' ? (
           <img className="h-full w-full" src={selectedImage} alt="Selected" />
         ) : (
           <p className="px-10">No image picked yet</p>

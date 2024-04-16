@@ -11,8 +11,8 @@ export  type SelectedImage = string | ArrayBuffer | null | undefined;
 
 export default function SharePage() {
 
+ const [selectedImage, setSelectedImage] = useState<SelectedImage>(null);
 
-  const [selectedImage, setSelectedImage] = useState<SelectedImage>(null);
 
   const router = useRouter();
 
@@ -36,6 +36,7 @@ export default function SharePage() {
       const reader = new FileReader();
       reader.onload = () => {
         setSelectedImage(reader.result);
+       
      
       };
       reader.readAsDataURL(file);
@@ -56,6 +57,7 @@ export default function SharePage() {
       title: enteredTitle,
       shortSummary: enteredShortSummary,
       instructions: enteredInstructions,
+      image:selectedImage
     };
 
     mutate({ formData: enteredData });

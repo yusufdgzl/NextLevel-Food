@@ -5,6 +5,7 @@ import getMeals from "../util/http";
 
 import MealsCard from "./MealsCard";
 import LoadingIndicator from "../ui/LoadingIndicator";
+import { SelectedImage } from "@/app/meals/share/page";
 
 export type Meals = {
   name: string;
@@ -12,7 +13,7 @@ export type Meals = {
   title: string;
   shortSummary: string;
   instructions: string;
-  image: string;
+  image: SelectedImage;
 };
 
 export default function MealsSection() {
