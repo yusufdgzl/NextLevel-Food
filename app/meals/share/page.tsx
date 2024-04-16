@@ -5,18 +5,16 @@ import { createNewMeal } from "@/components/util/http";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
-import { ChangeEvent, FormEvent, MouseEvent, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
 
-export  type SelectedImage = string | ArrayBuffer | null | undefined;
+export type SelectedImage = string | ArrayBuffer | null | undefined;
 
 export default function SharePage() {
-
- const [selectedImage, setSelectedImage] = useState<SelectedImage>(null);
-
+  const [selectedImage, setSelectedImage] = useState<SelectedImage>(null);
 
   const router = useRouter();
 
-  const { mutate } = useMutation({
+  const { mutate, error } = useMutation({
     mutationFn: createNewMeal,
     onSuccess: () => {
       router.push("../meals");
@@ -29,6 +27,8 @@ export default function SharePage() {
   const shortSummaryRef = useRef<HTMLInputElement>(null);
   const instructionsRef = useRef<HTMLTextAreaElement>(null);
 
+  // IMAGE PICKER FUNCTİON
+
   function handleImageChange(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files && event.target.files[0];
 
@@ -36,12 +36,12 @@ export default function SharePage() {
       const reader = new FileReader();
       reader.onload = () => {
         setSelectedImage(reader.result);
-       
-     
       };
       reader.readAsDataURL(file);
     }
   }
+
+  //
 
   function submitHandler(event: FormEvent) {
     event.preventDefault();
@@ -57,7 +57,7 @@ export default function SharePage() {
       title: enteredTitle,
       shortSummary: enteredShortSummary,
       instructions: enteredInstructions,
-      image:selectedImage
+      image: selectedImage,
     };
 
     mutate({ formData: enteredData });
@@ -73,6 +73,9 @@ export default function SharePage() {
           Or any other meal you feel needs sharing!
         </h2>
       </div>
+
+  
+
       <form
         onSubmit={submitHandler}
         className=" flex flex-col  px-6 py-10 md:px-0 space-y-4  md:pl-36 max-w-[900px]"
@@ -142,8 +145,13 @@ export default function SharePage() {
           />
         </div>
 
-        <ImagePicker selectedImage={selectedImage} onHandleImageChange={handleImageChange} />
+        <p className="text-red-500 text-xl tracking-wider italic">{error?.message}</p>
+        
 
+        <ImagePicker
+          selectedImage={selectedImage}
+          onHandleImageChange={handleImageChange}
+        />
         <div className="w-full flex justify-end">
           <button className="w-full md:w-[200px] rounded-md border text-pink-600 border-pink-600 hover:bg-pink-600 hover:text-white transition-colors duration-300  py-2">
             Share Meal

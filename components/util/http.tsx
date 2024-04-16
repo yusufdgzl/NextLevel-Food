@@ -5,7 +5,7 @@ import { Meals } from "../meals/MealsGridSection";
 
 export const queryClient = new QueryClient();
 
-export default async function getMeals() {
+export async function getMeals() {
   const response = await fetch("/api");
 
   if (!response.ok) {
@@ -30,6 +30,19 @@ export async function getMeal({ title }: { title: string | string[] }) {
 }
 
 export async function createNewMeal({ formData }: { formData: Meals }) {
+  const { email, image, instructions, name, shortSummary, title } = formData;
+
+  if (
+    email === "" ||
+    image === null ||
+    instructions === "" ||
+    name === "" ||
+    shortSummary === "" ||
+    title === ""
+  ) {
+    throw new Error("Information is missing or incorrect ,please check all fields!");
+  }
+
   const response = await fetch("/api", {
     method: "POST",
     body: JSON.stringify(formData),
@@ -44,5 +57,5 @@ export async function createNewMeal({ formData }: { formData: Meals }) {
 
   const form = response.json();
 
-  return form
+  return form;
 }

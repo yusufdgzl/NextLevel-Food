@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import getMeals from "../util/http";
+import { getMeals } from "../util/http";
 
 import MealsCard from "./MealsCard";
 import LoadingIndicator from "../ui/LoadingIndicator";
