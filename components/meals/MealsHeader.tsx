@@ -1,7 +1,11 @@
 import Link from "next/link";
 import MealsSearch from "./MealsSearch";
 
-function MealsHeader() {
+type MealsHeaderProps = {
+  setEnteredSearchTerm: (prev:string) => void;
+}
+
+function MealsHeader({setEnteredSearchTerm}:MealsHeaderProps) {
   return (
     <div className="flex flex-col items-center md:items-start text-white space-y-6 py-6 px-6 md:px-36">
       <div className="flex md:items-center md:w-full md:justify-between">
@@ -9,7 +13,7 @@ function MealsHeader() {
           Delicious meals, created <p className="px-2 text-pink-700">by you</p>
         </h1>
         <div className=" hidden md:flex ">
-          <MealsSearch />
+          <MealsSearch setEnteredSearchTerm={setEnteredSearchTerm} />
         </div>
       </div>
 
@@ -23,7 +27,7 @@ function MealsHeader() {
         Share Your Favorite Recipe
       </Link>
       <div className="w-full md:hidden">
-        <MealsSearch />
+        <MealsSearch setEnteredSearchTerm={setEnteredSearchTerm}/>
       </div>
     </div>
   );

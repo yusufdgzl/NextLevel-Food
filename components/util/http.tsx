@@ -5,7 +5,7 @@ import { Meals } from "../meals/MealsGridSection";
 
 export const queryClient = new QueryClient();
 
-export async function getMeals({ searchData }: { searchData: string }) {
+export async function getMeals({ searchData }: { searchData: string | undefined}) {
   const response = await fetch("/api");
 
   if (!response.ok) {
@@ -14,7 +14,7 @@ export async function getMeals({ searchData }: { searchData: string }) {
 
   let meals: Meals[] = await response.json();
 
-  if (searchData) {
+  if (searchData !== undefined) {
     meals = meals.filter((item) => {
       const searchableText = `${item.title} ${item.name}`;
       return searchableText.toLowerCase().includes(searchData.toLowerCase());

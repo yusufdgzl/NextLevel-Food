@@ -16,12 +16,18 @@ export type Meals = {
   image: SelectedImage;
 };
 
-export default function MealsSection() {
+type MealsSectionProps = {
+  enteredSearchTerm: string | undefined;
+}
+
+export default function MealsSection({enteredSearchTerm}:MealsSectionProps) {
   const { data, isPending, isError, error } = useQuery<Meals[]>({
-    queryKey: ["meals"],
-    queryFn: getMeals,
+    queryKey: ["meals",enteredSearchTerm],
+    queryFn: () => getMeals({searchData:enteredSearchTerm}),
     staleTime: 5000,
   });
+
+  console.log(data)
 
   let content;
 
