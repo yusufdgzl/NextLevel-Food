@@ -26,7 +26,7 @@ function MainHeader() {
           className={` hover:text-pink-500 hover:[text-shadow:_0_0_15px_pink]   px-3 py-1 rounded-full ${
             pathName === "/meals" && activeClass
           } `}
-          href="meals"
+          href="/meals"
         >
           Browse Meals
         </Link>

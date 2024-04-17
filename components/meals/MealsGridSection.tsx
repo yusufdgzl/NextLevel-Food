@@ -21,6 +21,7 @@ type MealsSectionProps = {
 }
 
 export default function MealsSection({enteredSearchTerm}:MealsSectionProps) {
+
   const { data, isPending, isError, error } = useQuery<Meals[]>({
     queryKey: ["meals",enteredSearchTerm],
     queryFn: () => getMeals({searchData:enteredSearchTerm}),

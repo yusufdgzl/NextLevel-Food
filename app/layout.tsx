@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <QueryClientProvider client={queryClient}>
-      <body className="bg-gray-900">
+      <body className="bg-slate-900">
         <MainHeader />
         {children}
       </body>
