@@ -15,10 +15,16 @@ function MainHeader() {
       <span className="absolute bottom-5 md:-bottom-1 -left-5 w-full md:w-2/5 h-[5px] bg-gray-900 translate-y-5 rotate-12"></span>
       <span className="absolute bottom-5 md:-bottom-1 -left-5 w-full md:w-2/5 h-[4px] bg-gray-900 translate-y-10 rotate-12"></span>
 
-      <div className="flex  items-center  space-x-6">
-        <Image src="/logo.png" width={200} height={200}  alt="Main logo" />
-        <Link className="text-2xl" href="/">
-          NEXTLEVEL FOOD
+      <div>
+        <Link className="text-2xl flex  items-center  space-x-6" href="/">
+          <Image
+            src="/main-logo.jpg"
+            width={100}
+            height={100}
+            className="rounded-3xl hover:brightness-125"
+            alt="Main logo"
+          />
+          <p> NEXTLEVEL FOOD</p>
         </Link>
       </div>
       <nav className=" space-x-10  text-lg  md:text-xl font-semibold">
