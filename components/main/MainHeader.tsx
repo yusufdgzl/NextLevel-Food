@@ -10,7 +10,7 @@ function MainHeader() {
   const activeClass = "text-pink-500 [text-shadow:_0_0_15px_pink]";
 
   return (
-    <header className="flex flex-col space-y-6 relative overflow-hidden bg-[url('https://getwallpapers.com/wallpaper/full/6/8/a/1371788-dark-purple-background-1920x1152-hd-1080p.jpg')] bg-cover  md:bg-center justify-between items-center md:px-36 py-8 pb-20 md:space-y-0 md:flex-row font-bold text-white tracking-wider ">
+    <header className="flex flex-col space-y-6 relative overflow-hidden bg-[url('/header-bg-black-pink.jpg')] bg-cover  md:bg-center justify-between items-center md:px-36 py-8 pb-20 md:space-y-0 md:flex-row font-bold text-white tracking-wider ">
       <span className="absolute  bottom-5 md:-bottom-1 -left-5 w-full md:w-2/5 h-[6px] bg-gray-900 rotate-12"></span>
       <span className="absolute bottom-5 md:-bottom-1 -left-5 w-full md:w-2/5 h-[5px] bg-gray-900 translate-y-5 rotate-12"></span>
       <span className="absolute bottom-5 md:-bottom-1 -left-5 w-full md:w-2/5 h-[4px] bg-gray-900 translate-y-10 rotate-12"></span>
@@ -21,7 +21,7 @@ function MainHeader() {
             src="/main-logo.jpg"
             width={100}
             height={100}
-            className="rounded-3xl hover:brightness-125"
+            className="rounded-3xl hover:brightness-125 duration-150"
             alt="Main logo"
           />
           <p> NEXTLEVEL FOOD</p>

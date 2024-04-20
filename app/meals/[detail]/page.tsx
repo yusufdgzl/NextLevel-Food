@@ -56,7 +56,7 @@ export default function MealsDetailPage() {
           </div>
         </div>
         <div className="relative  max-w-[1000px]  ">
-          <h2 className="absolute font-jule top-0 right-0 left-0 md:left-auto md:-right-4 -translate-y-4 px-4 py-1 rounded-md text-center text-2xl  bg-pink-800  font-bold text-white ">
+          <h2 className="absolute font-jule top-0 right-0 left-0 md:left-auto md:-right-4 -translate-y-4 px-4 py-1 rounded-md text-center text-2xl  bg-pink-800   text-white ">
             My Recipe
           </h2>
           <pre className=" bg-[#9f8c7a] italic text-md md:text-xl max-w-sm md:max-w-max flex py-8 px-4 font-[500] overflow-auto font-inter leading-8 md:leading-10 rounded-xl ">
