@@ -20,9 +20,9 @@ export default function MealsCard({ items }: { items: Meals }) {
       </div>
 
       <div className="p-4 text-white tracking-wider  ">
-        <h2 className="text-2xl tracking-widest">{items.title}</h2>
+        <h2 className="text-2xl font-jule tracking-widest">{items.title}</h2>
         <p className="text-xs text-yellow-800 italic">{items.name}</p>
-        <h3 className=" leading-5 mt-5 text-[15px] font-thin">
+        <h3 className=" leading-5 opacity-50 mt-5 text-[15px] font-thin">
           {items.shortSummary}
         </h3>
         <Link href={`/meals/${items.title}`}>

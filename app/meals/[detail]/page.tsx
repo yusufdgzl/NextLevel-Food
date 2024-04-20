@@ -48,15 +48,18 @@ export default function MealsDetailPage() {
             />
           )}
           <div className=" py-6 space-y-4 text-center max-w-[700px] text-white md:text-left md:p-14">
-            <h1 className="text-3xl font-bold md:text-5xl">{data.title}</h1>
-            <h2 className="flex justify-center text-xl md:text-2xl md:justify-start ">
-              by <p className="text-pink-700 px-1">{data.name}</p>
+            <h1 className="text-3xl font-bold font-jule md:text-5xl">{data.title}</h1>
+            <h2 className="flex font-jule justify-center text-xl md:text-2xl md:justify-start ">
+              by <p className="text-pink-700 font-serif px-1">{data.name}</p>
             </h2>
-            <h2 className="text-lg md:text-2xl">{data.shortSummary}</h2>
+            <h2 className="text-lg font-jule md:text-2xl">{data.shortSummary}</h2>
           </div>
         </div>
-        <div className="max-w-[1000px] ">
-          <pre className=" bg-[#9f8c7a] rounded-xl p-6">
+        <div className="relative  max-w-[1000px]  ">
+          <h2 className="absolute font-jule top-0 right-0 left-0 md:left-auto md:-right-4 -translate-y-4 px-4 py-1 rounded-md text-center text-2xl  bg-pink-800  font-bold text-white ">
+            My Recipe
+          </h2>
+          <pre className=" bg-[#9f8c7a] italic text-md md:text-xl max-w-sm md:max-w-max flex py-8 px-4 font-[500] overflow-auto font-inter leading-8 md:leading-10 rounded-xl ">
             {data.instructions}
           </pre>
         </div>

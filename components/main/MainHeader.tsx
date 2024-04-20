@@ -16,7 +16,7 @@ function MainHeader() {
       <span className="absolute bottom-5 md:-bottom-1 -left-5 w-full md:w-2/5 h-[4px] bg-gray-900 translate-y-10 rotate-12"></span>
 
       <div className="flex  items-center  space-x-6">
-        <Image src={logoImg} className="w-20" alt="Main logo" />
+        <Image src="/logo.png" width={200} height={200}  alt="Main logo" />
         <Link className="text-2xl" href="/">
           NEXTLEVEL FOOD
         </Link>
