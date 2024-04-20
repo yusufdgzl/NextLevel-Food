@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Julee } from "next/font/google";
 import "./globals.css";
 import MainHeader from "@/components/main/MainHeader";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/components/util/http";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--display-font" });
+const jule = Julee({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--body-font",
+});
 
 export const metadata: Metadata = {
   title: "NextLevel Food",
@@ -18,12 +24,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${jule.variable}`}>
       <QueryClientProvider client={queryClient}>
-      <body className="bg-slate-900">
-        <MainHeader />
-        {children}
-      </body>
+        <body className="bg-slate-900">
+          <MainHeader />
+          {children}
+        </body>
       </QueryClientProvider>
     </html>
   );

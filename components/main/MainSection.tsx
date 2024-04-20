@@ -12,7 +12,7 @@ function MainSection() {
           <h2 className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-pink-800 text-3xl tracking-wide">
             NEXTLEVEL FOOD FOR NEXTLEVEL FOODIES
           </h2>
-          <h3 className="text-white text-xl font-thin tracking-wider">
+          <h3 className="text-white font-jule text-xl font-thin tracking-wider">
             Taste & share food from all over the world.
           </h3>
           <div className="flex items-center justify-center md:justify-start md:pt-6 space-x-6">
