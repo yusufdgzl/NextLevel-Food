@@ -5,6 +5,7 @@ import "./globals.css";
 import MainHeader from "@/components/main/MainHeader";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/components/util/http";
+import MainFooter from "@/components/main/MainFooter";
 
 const inter = Inter({ subsets: ["latin"], variable: "--display-font" });
 const jule = Julee({
@@ -29,6 +30,7 @@ export default function RootLayout({
         <body className="bg-slate-900">
           <MainHeader />
           {children}
+          <MainFooter/>
         </body>
       </QueryClientProvider>
     </html>

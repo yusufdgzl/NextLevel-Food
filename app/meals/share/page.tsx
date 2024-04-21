@@ -29,7 +29,6 @@ export default function SharePage() {
 
   // IMAGE PICKER FUNCTİON
 
-
   //
 
   function submitHandler(event: FormEvent) {
@@ -62,8 +61,6 @@ export default function SharePage() {
           Or any other meal you feel needs sharing!
         </h2>
       </div>
-
-  
 
       <form
         onSubmit={submitHandler}
@@ -134,8 +131,9 @@ export default function SharePage() {
           />
         </div>
 
-        <p className="text-red-500 text-xl tracking-wider italic">{error?.message}</p>
-        
+        <p className="text-red-500 text-xl tracking-wider italic">
+          {error?.message}
+        </p>
 
         <ImagePicker
           selectedImage={selectedImage}
