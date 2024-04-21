@@ -6,7 +6,7 @@ import eventsIcon from "@/assets/icons/events.png";
 
 export default function Community() {
   return (
-    <div className="flex flex-col space-y-10 items-center justify-center  text-white">
+    <div className="flex flex-col py-4 md:py-10 md:pb-52 space-y-10 items-center justify-center  text-white">
       
       <div className="flex flex-col space-y-8 py-4 tracking-widest items-center">
         <h1 className="flex text-3xl md:text-5xl font-bold ">
@@ -16,7 +16,7 @@ export default function Community() {
           Join our community and share your favorite recipes!
         </h2>
       </div>
-      <div className="flex flex-col w-full items-center justify-center text-center space-y-8 py-8  ">
+      <div className="flex flex-col w-full items-center justify-center text-center space-y-8 py-8 md:py-0 md:space-y-0 pt-8  ">
         <h2 className="text-2xl md:text-4xl font-semibold">Community Perks</h2>
         <div className=" flex flex-col w-full md:pl-10 md:max-w-[1000px] items-center space-y-6 md:flex-row md:space-y-0 md:justify-between  ">
           <div className="flex flex-col justify-center items-center space-y-6 max-w-[300px] md:translate-y-40 transition-transform duration-1000">

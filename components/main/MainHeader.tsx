@@ -24,7 +24,7 @@ function MainHeader() {
             className="rounded-3xl hover:brightness-125 duration-150"
             alt="Main logo"
           />
-          <p> NEXTLEVEL FOOD</p>
+          <p className=" font-lobster text-4xl tracking-wider font-thin"> NEXTLEVEL FOOD</p>
         </Link>
       </div>
       <nav className=" space-x-10  text-lg  md:text-xl font-semibold">

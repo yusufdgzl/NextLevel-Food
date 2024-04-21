@@ -9,8 +9,8 @@ function MealsHeader({setEnteredSearchTerm}:MealsHeaderProps) {
   return (
     <div className="flex flex-col items-center md:items-start text-white space-y-6 py-6 px-6 md:px-36">
       <div className="flex md:items-center md:w-full md:justify-between">
-        <h1 className="flex text-2xl font-bold justify-center md:justify-start md:text-5xl">
-          Delicious meals, created <p className="px-2 text-pink-700">by you</p>
+        <h1 className="flex text-2xl font-bold justify-center md:justify-start md:text-3xl xl:text-4xl 2xl:text-5xl">
+          Delicious meals, created <strong className="px-2 text-pink-700">by you</strong>
         </h1>
         <div className=" hidden md:flex ">
           <MealsSearch setEnteredSearchTerm={setEnteredSearchTerm} />

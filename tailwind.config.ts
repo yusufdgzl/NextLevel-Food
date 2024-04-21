@@ -16,7 +16,7 @@ const config: Config = {
       fontFamily: {
         "inter": "var(--display-font)",
        "jule": "var(--body-font)",
-
+       "lobster" : "var(--header-font)"
       }
     },
   },

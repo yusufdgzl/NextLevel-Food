@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Lobster } from "next/font/google";
 import { Julee } from "next/font/google";
 import "./globals.css";
 import MainHeader from "@/components/main/MainHeader";
@@ -13,6 +13,7 @@ const jule = Julee({
   weight: ["400"],
   variable: "--body-font",
 });
+const lobster = Lobster({subsets: ["latin"],weight: ["400"],variable: "--header-font"})
 
 export const metadata: Metadata = {
   title: "NextLevel Food",
@@ -25,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jule.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jule.variable} ${lobster.variable}`}>
       <QueryClientProvider client={queryClient}>
         <body className="bg-slate-900">
           <MainHeader />
