@@ -32,7 +32,7 @@ export default function MealsDetailPage() {
 
   if (data) {
     content = (
-      <div className="flex flex-col items-center justify-center md:px-32 space-y-4 md:space-y-10 p-4">
+      <div className="flex flex-col items-center justify-center md:px-32 space-y-4 md:space-y-10 p-6 md:py-20">
         <div
           className={`flex flex-col items-center transition-all md:flex-row ${
             data ? "translate-x-0" : "translate-x-10"
@@ -40,7 +40,7 @@ export default function MealsDetailPage() {
         >
           {typeof data.image === "string" && (
             <Image
-              className="w-[500px] h-[400px]"
+              className="w-[400px] h-[350px] md:w-[500px] md:h-[400px]"
               src={data.image}
               width={800}
               height={800}

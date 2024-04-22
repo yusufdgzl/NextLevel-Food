@@ -31,11 +31,17 @@ export default function ImagePicker({
 
   return (
     <div className="flex items-center space-x-10  ">
-      <div className="w-40 h-40 border justify-center items-center flex text-white ">
+      <div
+        className={
+          !selectedImage
+            ? " w-40 h-40 border-4 justify-center items-center flex text-white"
+            : "w-40 h-40 border-4 border-pink-500 duration-500 justify-center items-center flex text-white "
+        }
+      >
         {typeof selectedImage === "string" ? (
           <img className="h-full w-full" src={selectedImage} alt="Selected" />
         ) : (
-          <p className="px-10">No image picked yet</p>
+          <p className="px-9">No image picked yet</p>
         )}
       </div>
 

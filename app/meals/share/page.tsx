@@ -1,5 +1,6 @@
 "use client";
 
+import { Meals } from "@/components/meals/MealsGridSection";
 import ImagePicker from "@/components/share/ImagePicker";
 import { createNewMeal } from "@/components/util/http";
 import { useMutation } from "@tanstack/react-query";
@@ -11,6 +12,7 @@ export type SelectedImage = string | ArrayBuffer | null | undefined;
 
 export default function SharePage() {
   const [selectedImage, setSelectedImage] = useState<SelectedImage>(null);
+  const [enteredData, setEnteredData] = useState<Meals>();
 
   const router = useRouter();
 
@@ -27,10 +29,6 @@ export default function SharePage() {
   const shortSummaryRef = useRef<HTMLInputElement>(null);
   const instructionsRef = useRef<HTMLTextAreaElement>(null);
 
-  // IMAGE PICKER FUNCTİON
-
-  //
-
   function submitHandler(event: FormEvent) {
     event.preventDefault();
     const enteredName = nameRef.current!.value;
@@ -39,16 +37,16 @@ export default function SharePage() {
     const enteredShortSummary = shortSummaryRef.current!.value;
     const enteredInstructions = instructionsRef.current!.value;
 
-    const enteredData = {
+    setEnteredData({
       name: enteredName,
       email: enteredEmail,
       title: enteredTitle,
       shortSummary: enteredShortSummary,
       instructions: enteredInstructions,
       image: selectedImage,
-    };
+    });
 
-    mutate({ formData: enteredData });
+    mutate({ formData: enteredData! });
   }
 
   return (
@@ -72,7 +70,11 @@ export default function SharePage() {
               YOUR NAME
             </label>
             <input
-              className="input"
+              className={
+                enteredData?.name.length === 0
+                  ? `input border-red-500 border`
+                  : "input "
+              }
               type="text"
               id="name"
               name="name"
@@ -84,7 +86,11 @@ export default function SharePage() {
               YOUR EMAIL
             </label>
             <input
-              className="input"
+              className={
+                enteredData?.email.length === 0
+                  ? `input border-red-500 border`
+                  : "input"
+              }
               type="email"
               id="email"
               name="email"
@@ -98,7 +104,11 @@ export default function SharePage() {
             TITLE
           </label>
           <input
-            className="input"
+            className={
+              enteredData?.title.length === 0
+                ? `input border-red-500 border`
+                : "input"
+            }
             type="text"
             id="title"
             name="title"
@@ -112,7 +122,11 @@ export default function SharePage() {
           </label>
           <input
             ref={shortSummaryRef}
-            className="input"
+            className={
+              enteredData?.shortSummary.length === 0
+                ? `input border-red-500 border`
+                : "input"
+            }
             type="text"
             id="shortSummary"
             name="shortSummary"
@@ -125,7 +139,11 @@ export default function SharePage() {
           </label>
           <textarea
             ref={instructionsRef}
-            className="input h-40 "
+            className={
+              enteredData?.instructions.length === 0
+                ? `input border-red-500 border`
+                : "input "
+            }
             id="instructions"
             name="instructions"
           />
