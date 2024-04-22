@@ -6,13 +6,13 @@ import { createNewMeal } from "@/components/util/http";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 
 export type SelectedImage = string | ArrayBuffer | null | undefined;
 
 export default function SharePage() {
   const [selectedImage, setSelectedImage] = useState<SelectedImage>(null);
-  const [enteredData, setEnteredData] = useState<Meals>();
+  const [isEnteredData, setIsEnteredData] = useState<Meals>();
 
   const router = useRouter();
 
@@ -37,7 +37,7 @@ export default function SharePage() {
     const enteredShortSummary = shortSummaryRef.current!.value;
     const enteredInstructions = instructionsRef.current!.value;
 
-    setEnteredData({
+    setIsEnteredData({
       name: enteredName,
       email: enteredEmail,
       title: enteredTitle,
@@ -46,7 +46,18 @@ export default function SharePage() {
       image: selectedImage,
     });
 
-    mutate({ formData: enteredData! });
+    const enteredData = {
+      name: enteredName,
+      email: enteredEmail,
+      title: enteredTitle,
+      shortSummary: enteredShortSummary,
+      instructions: enteredInstructions,
+      image: selectedImage,
+    };
+
+    if (enteredData) {
+      mutate({ formData: enteredData });
+    }
   }
 
   return (
@@ -71,7 +82,7 @@ export default function SharePage() {
             </label>
             <input
               className={
-                enteredData?.name.length === 0
+                isEnteredData?.name.length === 0
                   ? `input border-red-500 border`
                   : "input "
               }
@@ -87,7 +98,7 @@ export default function SharePage() {
             </label>
             <input
               className={
-                enteredData?.email.length === 0
+                isEnteredData?.email.length === 0
                   ? `input border-red-500 border`
                   : "input"
               }
@@ -105,7 +116,7 @@ export default function SharePage() {
           </label>
           <input
             className={
-              enteredData?.title.length === 0
+              isEnteredData?.title.length === 0
                 ? `input border-red-500 border`
                 : "input"
             }
@@ -123,7 +134,7 @@ export default function SharePage() {
           <input
             ref={shortSummaryRef}
             className={
-              enteredData?.shortSummary.length === 0
+              isEnteredData?.shortSummary.length === 0
                 ? `input border-red-500 border`
                 : "input"
             }
@@ -140,7 +151,7 @@ export default function SharePage() {
           <textarea
             ref={instructionsRef}
             className={
-              enteredData?.instructions.length === 0
+              isEnteredData?.instructions.length === 0
                 ? `input border-red-500 border`
                 : "input "
             }
