@@ -6,6 +6,7 @@ import { getMeals } from "../util/http";
 import MealsCard from "./MealsCard";
 import LoadingIndicator from "../ui/LoadingIndicator";
 import { SelectedImage } from "@/app/meals/share/page";
+import { useEffect, useState } from "react";
 
 export type Meals = {
   name: string;
@@ -28,7 +29,6 @@ export default function MealsSection({enteredSearchTerm}:MealsSectionProps) {
     staleTime: 5000,
   });
 
-  console.log(data)
 
   let content;
 

@@ -2,24 +2,31 @@
 
 import { Meals } from "@/components/meals/MealsGridSection";
 import ImagePicker from "@/components/share/ImagePicker";
+import CheckIcons from "@/components/ui/icons/CheckIcon";
 import { createNewMeal } from "@/components/util/http";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 
 export type SelectedImage = string | ArrayBuffer | null | undefined;
 
 export default function SharePage() {
   const [selectedImage, setSelectedImage] = useState<SelectedImage>(null);
   const [isEnteredData, setIsEnteredData] = useState<Meals>();
+  const [isSaved,setIsSaved] = useState<boolean>(false);
 
   const router = useRouter();
 
-  const { mutate, error } = useMutation({
+  const { mutate,isError, error } = useMutation({
     mutationFn: createNewMeal,
     onSuccess: () => {
-      router.push("../meals");
+      setIsSaved(true);
+      setTimeout(() => {
+        router.push("../meals");
+        setIsSaved(false)
+      }, 3000);
+      
     },
   });
 
@@ -159,10 +166,12 @@ export default function SharePage() {
             name="instructions"
           />
         </div>
-
-        <p className="text-red-500 text-xl tracking-wider italic">
+            
+        {isError && <p className="text-red-500 text-xl tracking-wider italic animate-pulse">
           {error?.message}
-        </p>
+        </p>}
+
+        {isSaved && <p className="flex text-green-500 text-xl tracking-wider italic"><CheckIcons />Your recipe has been successfully saved, you are directed to the meals page...</p>}
 
         <ImagePicker
           selectedImage={selectedImage}
